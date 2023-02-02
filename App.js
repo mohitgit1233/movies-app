@@ -1,12 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
+import { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import FullPage from './src/compenents/stacks/FullPage';
+
+
 
 export default function App() {
+
+ 
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    
+      <NativeBaseProvider>
+      <FullPage />
       <StatusBar style="auto" />
-    </View>
+      </NativeBaseProvider>
+
   );
 }
 
