@@ -30,10 +30,15 @@ const MainMovieScreen = ({navigation}) =>{
     <>
         <Center>
     <Box maxW="300">
-      <Select selectedValue={filter} minWidth="200" marginBottom="7" marginTop="7" accessibilityLabel="Choose Service"  _selectedItem={{
-    
-      bg: "teal.500",
-      endIcon: <CheckIcon size="5" />
+      <Select selectedValue={filter} minWidth="200" 
+      marginBottom="7" 
+      marginTop="7" 
+      fontSize="sm"
+      accessibilityLabel="Choose Service"  
+      _selectedItem={{
+        _text: { color: 'white',fontWeight:"semibold" },
+      bg: "teal.600",
+      endIcon: <CheckIcon size="7" color="white" />
     }} mt={1} onValueChange={Value => {
       setFilter(Value)
     }}>

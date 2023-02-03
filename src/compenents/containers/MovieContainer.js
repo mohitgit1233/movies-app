@@ -6,20 +6,21 @@ const MovieContainer = ({ navigation, route }) => {
   const { label, id,popularity,image,relDate,overview } = route.params
   return (
     <>
-      <Box width='100%'>
-        <Center py={10}>
-        <Heading size='xl'>{label}</Heading>
+      <Box width='100%' maxWidth='300' margin='auto' flex='10'  >
+        <Center paddingY={10}>
+        <Heading size="lg" marginBottom='10'>{label}</Heading>
         <Box>
         <Image
           source={{ uri: `${IMAGE_URL}${image}` }}
           alt={`${label}`}
-          size="120px"
+          size="250px"
+          marginBottom='6'
         />
         </Box>
-        <Text>{overview}</Text>
+        <Text marginBottom='6' >{overview}</Text>
           
-          <Text>Popularity : {popularity}</Text>
-          <Text>Release Date : {relDate}</Text>
+          <Text fontSize="xs">Popularity : {popularity} | Release Date : {relDate}</Text>
+          
         </Center>
       </Box>
     </>

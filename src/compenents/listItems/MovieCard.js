@@ -10,7 +10,7 @@ const MovieCard = props => {
   
 
   return (
-    <Box  borderRadius='md' pb={5} mb={10}>
+    <Box  borderRadius='md' marginBottom={7}>
       <VStack space={4} divider={<Divider />}>
         <Center style = {styles.centerFlex}>
         <Box>
@@ -52,12 +52,19 @@ const styles = StyleSheet.create({
   centerFlex:{
     display:'flex',
     flexDirection: 'row',
+    justifyContent:'flex-start',
+    marginLeft:25
+    
   },
   imgstyle:{
     marginRight:20
+    
   },
   Infobox:{
-    maxWidth:200
+    maxWidth:180,
+    display:'flex',
+    justifyContent:'space-evenly',
+    
   }
 })
 

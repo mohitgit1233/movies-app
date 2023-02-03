@@ -28,13 +28,17 @@ const TvShowScreen = ({navigation}) =>{
 <>
 <Center>
     <Box maxW="300">
-      <Select selectedValue={filter} minWidth="200" accessibilityLabel="Choose Service"  _selectedItem={{
+    <Select selectedValue={filter} minWidth="200" 
+      marginBottom="7" 
+      marginTop="7" 
+      fontSize="sm"
+      accessibilityLabel="Choose Service"  
+      _selectedItem={{
+        _text: { color: 'white',fontWeight:"semibold" },
       bg: "teal.600",
-      endIcon: <CheckIcon size="5" />
-    }} mt={1} onValueChange={itemValue => {
-      setFilter(itemValue)
-      
-
+      endIcon: <CheckIcon size="7" color="white" />
+    }} mt={1} onValueChange={Value => {
+      setFilter(Value)
     }}>
         <Select.Item label="airing_today" value="airing_today" />
         <Select.Item label="on_the_air" value="on_the_air" />
