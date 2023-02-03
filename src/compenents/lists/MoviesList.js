@@ -18,6 +18,7 @@ const MoviesList = ({movies,navigation}) => {
         label = {item.original_title}
         popularity = {item.popularity}
         relDate = {item.release_date}
+        type = "movie"
         id = {item.id}
         navigation = {navigation}
         overview = {item.overview}

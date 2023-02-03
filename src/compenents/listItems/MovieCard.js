@@ -6,9 +6,9 @@ import { StyleSheet } from 'react-native'
 
 
 const MovieCard = props => {
-  const { image, label, popularity, relDate , id, navigation, overview} = props
+  const { image, label, popularity, relDate ,type, id, navigation, overview} = props
   
-
+  
   return (
     <Box  borderRadius='md' marginBottom={7}>
       <VStack  divider={<Divider />} space={4}>
@@ -31,12 +31,10 @@ const MovieCard = props => {
           backgroundColor='cyan.500'
           onPress={() => {
             navigation.navigate('FullInfoMovie', {
-              label,
+              
               id,
-              image,
-              popularity,
-              overview,
-              relDate
+              type,
+              label
             })
             
           }}

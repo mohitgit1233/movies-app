@@ -27,3 +27,14 @@ export const api_call_search = async (input,filter) => {
 }
 
 
+export const api_call_single = async (id,type) => {
+
+  const url = `${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=en-US`
+ 
+  const apiCall = await fetch(url)
+
+  const response = await apiCall.json()
+  
+  console.log('watch this',response)
+return response
+}
