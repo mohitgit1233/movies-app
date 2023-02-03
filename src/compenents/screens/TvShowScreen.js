@@ -1,11 +1,9 @@
 import React from 'react'
 import { CheckIcon, Icon, Select } from 'native-base';
 import { Box, Button, Center, Divider, Heading, Image, VStack } from 'native-base'
-import MoviesList from '../lists/MoviesList'
+import Load from '../layout/Load';
 import { useEffect, useState } from 'react';
-import {API_KEY} from '../config/api_config';
 import {api_call} from '../config/api_call'
-import { Text } from 'react-native';
 import TvList from '../lists/TvList'
 
 
@@ -13,12 +11,14 @@ const TvShowScreen = ({navigation}) =>{
 
   const[tv,setTv] = useState([])
   const[filter,setFilter] = useState("popular")
+  const [isLoading,setIsLoading] = useState(false)
 
   const fetchShows = async () =>{
-    
+    setIsLoading(true)
     const response = await api_call(filter,"tv");
     console.log(response)
     setTv(response.results)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -43,8 +43,8 @@ const TvShowScreen = ({navigation}) =>{
       </Select>
     </Box>
   </Center>
-
-    <TvList shows = {tv} navigation = {navigation}/>
+  
+  {isLoading ? <Load/> :<TvList shows = {tv} navigation = {navigation}/>}  
     </>
   )
 } 

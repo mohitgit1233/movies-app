@@ -5,24 +5,28 @@ import Form from '../forms/Form'
 import { Ionicons } from '@expo/vector-icons'
 import Filters from '../filter/filter'
 import {api_call_search} from '../config/api_call'
+import Load from '../layout/Load'
 
 
 
 const SearchScreen = ({navigation}) => {
 
     const[result,setResult] = useState([])
-    const [isLoading,setIsLoading] = useState(true)
+    const [isIdle,setIsIdle] = useState(true)
+    const [isLoading,setIsLoading] = useState(false)
     const [searchWord,setSearchWord] = useState('')
     const [selectedValue, setSelectedValue] = useState('multi');
+    const [isEmpty,setIsEmpty] = useState(false)
     
     
     const fetchStuff = async () =>{
-   
+        setIsLoading(true)
+        setIsIdle(false)
         const response = await api_call_search(searchWord,selectedValue);
-         console.log(response)
+         
         setResult(response.results)
+
         setIsLoading(false)
-    
       }
     const HandleChange = searchWord =>{
         setSearchWord(searchWord)
@@ -30,7 +34,13 @@ const SearchScreen = ({navigation}) => {
   
     const onSubmit = () => {
         console.log('form submitted')
-        fetchStuff()
+        console.log(searchWord.length)
+        {searchWord.length > 0 ? <>
+        {fetchStuff()}
+        {setIsEmpty(false)}
+        </>
+        
+         : setIsEmpty(true)}
     
       }
 
@@ -38,6 +48,7 @@ const SearchScreen = ({navigation}) => {
       
       <>
       <Form onInputChange={HandleChange}  />
+      {isEmpty ? <Text color= 'red.600'>Please Enter a value</Text>:<></>}
       <Center>
     <Box maxW="300">
       <Select selectedValue={selectedValue} minWidth="200" accessibilityLabel="Choose Service"  _selectedItem={{
@@ -57,11 +68,17 @@ const SearchScreen = ({navigation}) => {
             Search
           </Button>
       
-     {isLoading ? <>
+     {isIdle ? <>
      <Text >Please initiate a search</Text></> :<>
+     {isLoading ? <Load/> :
+     <>
+     {result.length > 0 ?
         <MoviesList movies={result} navigation={navigation}/>
-   
+        : <Text>Oops! No results found</Text>
+     }
      </>}
+     </>
+     }
      
 
      

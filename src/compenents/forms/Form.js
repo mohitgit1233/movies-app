@@ -20,7 +20,7 @@ const Form = props => {
           <Input
             placeholder='i.e. James Bond, CSI'
             variant='filled'
-            bg='gray.200'
+            bg='gray.300'
             px={0}
             
             width='65%'
@@ -33,6 +33,7 @@ const Form = props => {
               setData({ ...formData, name: value })
             }}
           />
+       
           
           
         </HStack>

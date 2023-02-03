@@ -14,7 +14,7 @@ const Navigation = () => {
       initialRouteName="Movies"
       screenOptions={{
         tabBarIndicatorStyle: { backgroundColor: '#2c3e50', height: 2 },
-        tabBarLabelStyle: {  fontSize: 12,textTransform: 'none' },
+        tabBarLabelStyle: {  fontSize: 13,textTransform: 'none' },
       }}
     >
       <Tab.Screen name="Movies" component={MainMovieScreen} />
