@@ -11,18 +11,18 @@ const MovieCard = props => {
 
   return (
     <Box  borderRadius='md' marginBottom={7}>
-      <VStack space={4} divider={<Divider />}>
+      <VStack  divider={<Divider />} space={4}>
         <Center style = {styles.centerFlex}>
         <Box>
         <Image
           source={image == null || image == undefined ? { uri: 'https://dummyimage.com/900x900/878787/ffffff&text=No+Poster+found'} : { uri: `${IMAGE_URL}${image}` }}
           alt={`${label}`}
-          size="120px"
+          size="125px"
           style= {styles.imgstyle}
         />
         </Box>
         <Box style={styles.Infobox}>
-          <Heading style = {styles.headin} size="sm">{label}</Heading>
+          <Heading style = {styles.headin}  size="sm">{label}</Heading>
           
           <Text style = {styles.popular}>Popularity : {popularity}</Text>
           <Text>Release Date : {relDate}</Text>
