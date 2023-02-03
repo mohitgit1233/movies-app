@@ -12,8 +12,11 @@ const Navigation = () => {
    
     <Tab.Navigator
       initialRouteName="Movies"
+
       screenOptions={{
+
         tabBarIndicatorStyle: { backgroundColor: '#2c3e50', height: 2 },
+
         tabBarLabelStyle: {  fontSize: 13,textTransform: 'none' },
       }}
     >
@@ -28,8 +31,10 @@ const Navigation = () => {
       <Tab.Screen
         name="TvScreen"
         component={TvShowScreen}
+        
         options={{ tabBarLabel: 'TV Shows' }}
       />
+
     </Tab.Navigator>
   </>
   );

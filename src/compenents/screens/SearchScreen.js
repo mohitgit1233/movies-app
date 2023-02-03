@@ -49,19 +49,20 @@ console.log(response)
       
       <>
       <Form onInputChange={HandleChange}  />
-      {isEmpty ? <Text color= 'red.600'>Please Enter a value</Text>:<></>}
+      {isEmpty ? <Text textAlign={1} color= 'red.600'>Please Enter a value</Text>:<></>}
      
       <Center>
       
-    <Box marginBottom='10' >
+    <Box marginBottom ='10' >
     <FormControl isRequired>
-    <FormControl.Label fontSize='sm'>Choose Search Type</FormControl.Label>
+    <FormControl.Label fontSize='sm' fontWeight="bold">Choose Search Type</FormControl.Label>
     </FormControl>
 
     <Box display="flex" flexDirection="row">
     
-      <Select selectedValue={selectedValue} minWidth="180" height='10' accessibilityLabel="Choose Service"  _selectedItem={{
-      endIcon: <CheckIcon size="5" />,
+      <Select selectedValue={selectedValue} minWidth="180" height='10' fontSize='sm' accessibilityLabel="Choose Service"  _selectedItem={{
+      endIcon: <CheckIcon color="white" size="5" />,
+      _text:{color: 'white',fontWeight:"semibold" },
       bg: "teal.600"}} onValueChange={Value => {
 
         setSelectedValue(Value)
@@ -81,7 +82,7 @@ console.log(response)
       
       
      {isIdle ? <>
-     <Text fontSize={30} fontWeight={600} display='flex' textAlign={1} justifyContent="center">Please initiate a search</Text></> :<>
+     <Text fontSize={30} py={100} fontWeight={600} display='flex' textAlign={1} justifyContent="center">Please initiate a search</Text></> :<>
      {isLoading ? <Load/> :
      <>
      {result.length > 0 ?<>
@@ -89,7 +90,7 @@ console.log(response)
      {selectedValue == 'tv' ? <TvList shows={result} navigation={navigation}/> :<MoviesList movies={result} navigation={navigation}/>}
         
         </>
-        : <Text>Oops! No results found</Text>
+        : <Text fontSize={30} py={100} fontWeight={600} display='flex' textAlign={1} justifyContent="center" >Oops! No results found</Text>
      }
      </>}
      </>

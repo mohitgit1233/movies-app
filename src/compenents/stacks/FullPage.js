@@ -35,9 +35,14 @@ const FullPage = () => {
                 <Stack.Screen
                 name="FullInfoMovie"
                 component={FullInfoMovie}
+                
                 options={({route})=>({
-                    title:route.params.label
+                    title:route.params.label,
+                    
+                   
                 })}
+                
+                
                 >
 
                 </Stack.Screen>
